@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+
+import { features } from '../data/features.ts';
+---
+
+<section class="max-w-7xl mx-auto px-4 py-8 mt-16 mb-16">
+	<article class="mb-32 text-center">
+		<h2 class="uppercase font-bold text-3xl mb-4">Features</h2>
+		<p class="text-base">Aprende de los mejores y a tu propio ritmo</p>
+	</article>
+	<div class="flex flex-row justify-center items-center gap-20">
+		<Image
+			class=""
+			src={'/features.webp'}
+			alt="Imagen de jovenes tocando en un estudio"
+			loading={'lazy'}
+			width={600}
+			height={100}
+		/>
+		<article
+			class=""
+		>
+			{
+				features.map((feature) => (
+					<div class="mb-6">
+						<h3 class="uppercase">
+							<span class="border-1 rounded-full px-1 bg-violet-500 text-white">
+								&sung;
+							</span>{' '}
+							{feature.title}
+						</h3>
+						<p>{feature.content}</p>
+					</div>
+				))
+			}
+		</article>
+	</div>
+</section>
